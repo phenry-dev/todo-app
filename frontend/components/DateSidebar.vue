@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { toLocalISO } from '~/utils/date'
 
 const props = defineProps<{ selectedDate: string }>()
 const emit = defineEmits<{ 'update:date': (date: string) => void }>()
@@ -9,8 +10,8 @@ function formatDateLabel(date: Date): string {
   const yesterday = new Date(today)
   yesterday.setDate(yesterday.getDate() - 1)
   
-  const isToday = date.toDateString() === today.toDateString()
-  const isYesterday = date.toDateString() === yesterday.toDateString()
+  const isToday = toLocalISO(date) === toLocalISO(today)
+  const isYesterday = toLocalISO(date) === toLocalISO(yesterday)
   
   if (isToday) return 'Today'
   if (isYesterday) return 'Yesterday'
@@ -93,7 +94,8 @@ const dateList = computed(() => {
     lastWeek = weekNum
     
     const label = formatDateLabel(date)
-    const dateStr = date.toISOString().split('T')[0]
+    const dateStr = toLocalISO(date)
+
     
     items.push({
       type: 'date',

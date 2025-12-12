@@ -3,8 +3,8 @@ import { ref, computed, onMounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '~/stores/auth'
 import { useTaskStore } from '~/stores/task'
-import { LogOut, Search, User } from 'lucide-vue-next'
 import DateSidebar from '~/components/DateSidebar.vue'
+import { toLocalISO } from '~/utils/date'
 
 const auth = useAuthStore()
 const taskStore = useTaskStore()
@@ -18,7 +18,7 @@ if (process.client) {
   }
 }
 
-const selectedDate = ref<string>(new Date().toISOString().split('T')[0])
+const selectedDate = ref(toLocalISO(new Date()))
 const searchQuery = ref('')
 const deletingId = ref<number | null>(null)
 const draggingId = ref<number | null>(null)
