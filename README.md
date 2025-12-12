@@ -534,9 +534,11 @@ frontend/
 - Mysql for development
 - Migrations ensure schema consistency
 
-### 7.3 Process
-- Frontend: `pnpm dev` 
+### 7.3 Developement Process
+- Frontend: `pnpm i` (dependencies)
 - Backend: `composer install` (dependencies)
+- Frontend: `pnpm dev` 
+- Sail: `./vendor/bin/sail up --build` 
 
 ---
 
