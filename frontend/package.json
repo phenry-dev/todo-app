@@ -1,0 +1,35 @@
+{
+  "name": "frontend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@nuxtjs/tailwindcss": "^6.7.4",
+    "@pinia/nuxt": "^0.4.3",
+    "lucide-vue-next": "^0.291.0",
+    "nuxt": "^3.20.2",
+    "pinia": "^2.1.6",
+    "vue": "^3.5.25",
+    "vue-router": "^4.6.3"
+  },
+  "devDependencies": {
+    "@oxc-parser/binding-win32-x64-msvc": "^0.102.0",
+    "@types/node": "^20.2.5",
+    "typescript": "^5.4.2"
+  },
+  "pnpm": {
+    "overrides": {
+      "oxc-parser": "0.102.0",
+      "@oxc-parser/binding-linux-x64-gnu": "0.102.0"
+    }
+  },
+  "optionalDependencies": {
+    "@oxc-parser/binding-linux-x64-gnu": "0.102.0"
+  }
+}
